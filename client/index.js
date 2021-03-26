@@ -1,9 +1,4 @@
-/* 
-node index.js \
-  --username gerjunior \
-  --room sala01 \
-  --hostUri localhost
-*/
+#!/usr/bin/env node
 
 import Events from 'events';
 import CliConfig from './src/cliConfig.js';

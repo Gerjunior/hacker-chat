@@ -1,5 +1,5 @@
 export default class CliConfig {
-  constructor({ username, hostUri, room }) {
+  constructor({ username, hostUri = 'https://hacker-chat-gerjunior.herokuapp.com', room }) {
     this.username = username;
     this.room = room;
 

@@ -14,7 +14,7 @@ export default class TerminalController {
     return function () {
       const message = this.getValue();
 
-      console.log(message);
+      eventEmitter.emit(constants.events.app.MESSAGE_SENT, message);
 
       this.clearValue();
     };
@@ -55,7 +55,7 @@ export default class TerminalController {
 
       status.clearItems();
       status.addItem(content);
-      
+
       users.forEach((userName) => {
         const color = this.#getUserColor(userName);
         status.addItem(`{${color}}{bold}${userName}{/}`);
@@ -85,19 +85,5 @@ export default class TerminalController {
 
     components.input.focus();
     components.screen.render();
-
-    // setInterval(() => {
-    const users = ['gerjunior'];
-    eventEmitter.emit(constants.events.app.STATUS_UPDATED, users);
-    users.push('mariazinha');
-
-    eventEmitter.emit(constants.events.app.STATUS_UPDATED, users);
-    users.push('raptado');
-
-    eventEmitter.emit(constants.events.app.STATUS_UPDATED, users);
-    users.push('troll001', 'homedeferro112');
-
-    eventEmitter.emit(constants.events.app.STATUS_UPDATED, users);
-    // }, 2000);
   }
 }
